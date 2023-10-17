@@ -5,8 +5,8 @@
 		<packagename language="de">WoltLab Suite Core: Box für Spenden</packagename>
 		<packagedescription>Box for donations.</packagedescription>
 		<packagedescription languagecode="de">Box für Spenden.</packagedescription>
-		<version>1.0.13</version>
-		<date>2023-09-27</date>
+		<version>1.0.14</version>
+		<date>2023-10-16</date>
 	</packageinformation>
 	
 	<authorinformation>
@@ -15,7 +15,7 @@
 	</authorinformation>
 	
 	<requiredpackages>
-		<requiredpackage minversion="5.5.14">com.woltlab.wcf</requiredpackage>
+		<requiredpackage minversion="5.5.16">com.woltlab.wcf</requiredpackage>
 	</requiredpackages>
 
 	<excludedpackages>
@@ -30,6 +30,12 @@
 		<instruction type="objectTypeDefinition" />
 		<instruction type="objectType" />
 		<instruction type="box" />
+	</instructions>
+
+	<instructions type="update" fromversion="1.0.13">
+		<instruction type="template" />
+		<instruction type="language" />	
+		<instruction type="file" />
 	</instructions>
 	
 	<instructions type="update" fromversion="1.0.12">
@@ -51,38 +57,6 @@
 		<instruction type="file" />
 		<instruction type="option" />
 		<instruction type="template" />
-	</instructions>
-
-	<instructions type="update" fromversion="1.0.8">
-		<instruction type="language" />	
-	</instructions>
-
-	<instructions type="update" fromversion="1.0.7">
-		<instruction type="file" />
-		<instruction type="option" />
-		<instruction type="language" />	
-		<instruction type="template" />
-	</instructions>
-
-	<instructions type="update" fromversion="1.0.6">
-		<instruction type="template" />	
-		<instruction type="language" />		
-	</instructions>
-
-	<instructions type="update" fromversion="1.0.5">
-		<instruction type="template" />	
-	</instructions>
-
-	<instructions type="update" fromversion="1.0.4">
-		<instruction type="template" />	
-	</instructions>
-
-	<instructions type="update" fromversion="1.0.3">
-		<instruction type="template" />	
-	</instructions>
-
-	<instructions type="update" fromversion="1.0.2">
-		<instruction type="template" />	
 	</instructions>
 
 </package>

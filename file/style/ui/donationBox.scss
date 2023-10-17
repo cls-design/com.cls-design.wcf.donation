@@ -1,17 +1,56 @@
 .donationBox {
 	position: relative;
-}
 
-.donationBox h3 {
-	font-weight: bold;
-}
+	h3 {
+		font-weight: bold;
+	}
 
-.donationText {
-	margin-bottom: 20px;
-}
+	.donationText {
+		margin-bottom: 20px;
+	}
 
-#donationTransferLink + #donationPaypayLink {
-	margin-top: 10px;
+	#donationTransferLink+#donationPaypayLink {
+		margin-top: 10px;
+	}
+
+	#donationSelection {
+		position: absolute;
+		background-color: red;
+		color: white;
+		border-radius: 20px;
+		padding: 2px 8px;
+		top: 0;
+		right: 0;
+		box-shadow: 0 0 0 2px #ecf1f7;
+		min-width: 26px;
+		text-align: center;
+		font-weight: 600;
+	}
+
+	#donationSum,
+	#donationSumTransfer {
+		font-family: "Fira Mono", monospace;
+		font-size: 21px;
+		display: block;
+		margin-top: 5px;
+		font-weight: 600;
+	}
+
+	#donationTitle {
+		display: flex;
+
+		>div:first-child {
+			flex-basis: calc(100% - 74px);
+			max-width: calc(100% - 74px);
+		}
+
+		>div:last-child {
+			position: relative;
+			width: 64px;
+			margin-left: 10px;
+			position: relative;
+		}
+	}
 }
 
 #donationBoxThanks {
@@ -21,78 +60,139 @@
 	top: -5px;
 	bottom: -5px;
 	padding: 10px 20px;
-	background-color: var(--wcfSidebarBackground);
-	border-radius: var(--wcfBorderRadius);
+	background-color: rgb(0, 112, 186);
+	border-radius: 5px;
 	z-index: 1;
 	display: none;
-	border: 1px solid var(--wcfSidebarBorder);
+	color: #fff;
+
+	>div {
+		display: grid;
+		place-items: center;
+		height: 100%;
+	}
+
+	>div>div>div {
+		text-align: center;
+		font-size: 28px;
+	}
+
+	&.donationBoxThanksVisible {
+		display: block;
+	}
+
+	#donationBoxCloseButton {
+		position: absolute;
+		right: 10px;
+		top: 10px;
+		border: 1px solid #fff;
+		width: 20px;
+		height: 20px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-radius: 10px;
+
+		&::before,
+		&::after {
+			position: absolute;
+			content: '';
+			height: 12px;
+			width: 2px;
+			background-color: #fff;
+		}
+
+		&::before {
+			transform: rotate(45deg);
+		}
+
+		&::after {
+			transform: rotate(-45deg);
+		}
+	}
 }
 
-#donationBoxThanks > div {
-	display: grid;
-	place-items: center;
-	height: 100%;
+// Donation Progress
+
+.donationGoalProgress {
+	margin-top: 20px;
+
+	p {
+		margin-top: 5px;
+		font-size: 12px;
+	}
+
+	h3 {
+		margin-bottom: 5px;
+	}
+
+		progress {
+			 /* Basic Styling */
+			 -webkit-appearance: none;
+			 -moz-appearance: none;
+			 appearance: none;
+			
+			 height: 16px;
+			 
+			 width: 100%;
+			
+			  /* Firefox */
+			 border: none;
+			 border-radius: 8px;
+		}
+		progress::-webkit-progress-bar {
+			 border-radius: 8px;
+		}
+		progress::-webkit-progress-value {
+			 border-radius: 8px;
+		}
+		progress::-moz-progress-bar {
+			 border-radius: 8px;
+		}
+
+
+	--progress-color: #369;
+		progress {
+			 background-color: #a5df41;
+		}
+		progress::-moz-progress-bar {
+			  background-color:  #4ca916;
+		}
+		progress::-webkit-progress-bar {
+			 background-color: #a5df41;
+		}
+		progress::-webkit-progress-value {
+			  background-color:  #4ca916;
+		}
+
+
+	.donationGoalProgressBar {
+		height: var(--donationTrackHeight);
+		border-radius: var(--donationTrackBorderRadius);
+		background-color: #a5df41;
+		overflow: hidden;
+
+		>span {
+			display: block;
+			height: 100%;
+			background-color: #4ca916;
+			border-radius: var(--donationTrackBorderRadius) 0 0 var(--donationTrackBorderRadius);
+			border-radius: 0 3px 3px 0;
+		}
+	}
 }
 
-#donationBoxThanks > div > div > div {
-	text-align: center;
-	font-size: 28px;
-}
-
-#donationBoxCloseButton {
-	position: absolute;
-	right: 5px;
-	top: 5px;
-}	
-
-#donationBoxThanks.donationBoxThanksVisible {
-	display: block;
-}
-
-#donationSelection {
-	position: absolute;
-	background-color: red;
-	color: white;
-	border-radius: 20px;
-	padding: 2px 8px;
-	top: 0;
-	right: 0;
-	box-shadow: 0 0 0 2px #ecf1f7;
-	min-width: 26px;
-	text-align: center;
-	font-weight: 600;
-}
-
-#donationSum,
-#donationSumTransfer {
-	font-family: "Fira Mono", monospace;
-	font-size: 21px;
-	display: block;
-	margin-top: 5px;
-	font-weight: 600;
-}
-
-#donationTitle {
-	display: flex;
-}
-
-#donationTitle > div:first-child {
-	flex-basis: calc(100% - 74px);
-	max-width: calc(100% - 74px);
-}
-
-#donationTitle > div:last-child {
-	position: relative;
-	width: 64px;
-	margin-left: 10px;
-	position: relative;
-}
+// Range Slider
 
 .donationBox {
 	--donationTrackHeight: 16px;
 	--donationTrackBorderRadius: 8px;
 	--donationTrackThumb: 25px;
 	--donationTrackThumbColor: #fff;
+}
+
+html {
+	--donationTrackThumbBorder: 3px solid #0065B1;
 }
 
 html[data-color-scheme="light"] {
@@ -135,26 +235,38 @@ html[data-color-scheme="dark"] {
 	-webkit-appearance: none;
 }
 
+html {
+	.donationBar input::-webkit-slider-thumb {
+		box-shadow: 0 0 5px rgba(0, 0, 0, 0.35);
+	}
+
+	.donationBar input::-moz-range-thumb {
+		box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+	}
+}
+
 html[data-color-scheme="light"] {
 	.donationBar input::-webkit-slider-thumb {
-		box-shadow: 0 0 5px rgba(0,0,0,0.35);
+		box-shadow: 0 0 5px rgba(0, 0, 0, 0.35);
 	}
+
 	.donationBar input::-moz-range-thumb {
-		box-shadow: 0 0 5px rgba(0,0,0,0.25);
+		box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
 	}
 }
 
 html[data-color-scheme="dark"] {
 	.donationBar input::-webkit-slider-thumb {
-		box-shadow: 0 0 10px rgba(0,0,0,0.85);
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.85);
 	}
+
 	.donationBar input::-moz-range-thumb {
-		box-shadow: 0 0 10px rgba(0,0,0,0.85);
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.85);
 	}
 }
 
 .donationBar input:focus::-webkit-slider-runnable-track {
-	 background: transparent;
+	background: transparent;
 }
 
 .donationBar input::-moz-range-track {
@@ -172,30 +284,4 @@ html[data-color-scheme="dark"] {
 	border: var(--donationTrackThumbBorder);
 	border-radius: 20px;
 	cursor: pointer;
-}
-
-.donationGoalProgress {
-	margin-top: 20px;
-}
-
-.donationGoalProgress p {
-	margin-top: 5px;
-	font-size: 12px;
-}
-
-.donationGoalProgress h3 {
-	margin-bottom: 5px;
-}
-
-.donationGoalProgressBar {
-	height: var(--donationTrackHeight);
-	border-radius: var(--donationTrackBorderRadius);
-	background-color: #a5df41;
-}
-
-.donationGoalProgressBar > span {
-	display: block;
-	height: 100%;	
-	background-color: #4ca916;
-	border-radius: var(--donationTrackBorderRadius) 0 0 var(--donationTrackBorderRadius);
 }

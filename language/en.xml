@@ -38,11 +38,11 @@
 
 	<category name="wcf.donation">
 		<item name="wcf.donation.title"><![CDATA[Donate]]></item>
-		<item name="wcf.donation.link"><![CDATA[Donate now!*]]></item>
+		<item name="wcf.donation.link"><![CDATA[Donate now via Paypal*]]></item>
 		<item name="wcf.donation.link.description"><![CDATA[*Forwarding to PayPal.Me]]></item>
 		<item name="wcf.donation.donation"><![CDATA[Amount to be spent?]]></item>
 		<item name="wcf.donation.donation_currency_eur"><![CDATA[$]]></item>
-		<item name="wcf.donation.donation_transfer"><![CDATA[By Transfer]]></item>
+		<item name="wcf.donation.donation_transfer"><![CDATA[Donate now by bank transfer]]></item>
 		<item name="wcf.donation.donation_transfer_note"><![CDATA[Thank you very much!]]></item>
 		<item name="wcf.donation.donation_transfer_name"><![CDATA[Depositor]]></item>
 		<item name="wcf.donation.donation_transfer_iban"><![CDATA[IBAN]]></item>

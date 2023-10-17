@@ -3,9 +3,9 @@
 		<div>
 			<div>
 				<div>{lang}wcf.donation.thanks.message{/lang}</div>
-				<a id="donationBoxCloseButton" class="jsTooltip" title="{lang}wcf.donation.button.closePopup{/lang}">{icon size=24 name='circle-xmark'}</a>
+				<a id="donationBoxCloseButton" class="jsTooltip" title="{lang}wcf.donation.button.closePopup{/lang}"></a>
 			</div>
-		</div>	
+		</div>
 	</div>
 
 	{if USER_DONATION_TEXT}
@@ -31,11 +31,14 @@
 	</div>
 
 	{if USER_DONATION_TRANSFER_ACTIVATE == 1 && $__wcf->user->userID}
-	<a id="donationTransferLink" class="button buttonPrimary jsStaticDialog" href="#" data-dialog-id="donationNoteOverlay">{lang}wcf.donation.donation_transfer{/lang}</a>
+	<button id="donationTransferLink" class="button buttonPrimary jsStaticDialog" data-dialog-id="donationNoteOverlay">{lang}wcf.donation.donation_transfer{/lang}</button>
 	{/if}
-	<a id="donationPaypayLink" class="button buttonPrimary" {if USER_DONATION_NEW_WINDOW == 1}target="_blank"{/if}>{lang}wcf.donation.link{/lang}</a>
-	<p><small>{lang}wcf.donation.link.description{/lang}</small></p>				
-
+	
+	{if USER_DONATION_PAYPAL_LINK}
+	<a id="donationPaypayLink" class="button buttonPrimary noDereferer" {if USER_DONATION_NEW_WINDOW == 1}target="_blank"{/if}>{lang}wcf.donation.link{/lang}</a>
+	<p><small>{lang}wcf.donation.link.description{/lang}</small></p>
+	{/if}
+	
 	{if USER_DONATION_TRANSFER_ACTIVATE == 1 && $__wcf->user->userID}
 	<div id="donationNoteOverlay" class="jsStaticDialogContent" data-title="{lang}wcf.donation.title{/lang}">
 		<div id="donationNoteOverlayContent">
@@ -63,9 +66,7 @@
 	{if USER_DONATION_GOAL != 0}
 	<div class="donationGoalProgress">
 		<h3>{lang}wcf.donation.donation_goal{/lang}</h3>
-			<div class="donationGoalProgressBar">
-				<span style="width: {@USER_DONATION_GOAL}%"></span>
-			</div>
+		<progress min="0" max="100" value="{@USER_DONATION_GOAL}"></progress>
 		<p><small>{lang}wcf.donation.donation_goal_progress{/lang}</small></p>	
 	</div>
 	{/if}
@@ -73,37 +74,46 @@
 	<script>
 	(function () {
 		function donation(){
+			var donationFactor = {@USER_DONATION_FACTOR};
+			var donationNumberFormat = '{if $__wcf->getLanguage()->languageCode=='de'}de-DE{else}en-US{/if}';
+			var donationCurrency = '{if $__wcf->getLanguage()->languageCode=='de'}EUR{else}USD{/if}';
+			var donationTransfer = 	{if USER_DONATION_TRANSFER_ACTIVATE == 1 && $__wcf->user->userID}true{else}false{/if};
+			var donationPaypal = 	{if USER_DONATION_PAYPAL_LINK}true{else}false{/if};
+			var donationPaypalLinkBlank = '{@USER_DONATION_PAYPAL_LINK}';
+			  
 			let donationInput = document.getElementById('donationRange');
 			var donation = Number.parseFloat(donationInput.value);
 			var donationBarWidth = Number.parseFloat((donation - donationInput.min) / (donationInput.max - donationInput.min) * 100).toFixed(0);
-			var donationFormatter = new Intl.NumberFormat('{if $__wcf->getLanguage()->languageCode=='de'}de-DE{else}en-US{/if}', {
+			var donationFormatter = new Intl.NumberFormat(donationNumberFormat, {
 				style: 'currency',
-				currency: '{if $__wcf->getLanguage()->languageCode=='de'}EUR{else}USD{/if}',
+				currency: donationCurrency,
 				minimumFractionDigits: 2,
 				maximumFractionDigits: 2,
 			});
 			donationInput.style.background = 'linear-gradient(to right, #0065B1 0%, #0065B1 ' + donationBarWidth + '%, #45abf8 ' + donationBarWidth + '%, #45abf8 100%)';
 			document.getElementById('donationSelection').innerHTML = donation;
-			document.getElementById('donationSum').innerHTML = donationFormatter.format(donationInput.value * {@USER_DONATION_FACTOR});
-			{if USER_DONATION_TRANSFER_ACTIVATE == 1 && $__wcf->user->userID}
-			document.getElementById('donationSumTransfer').innerHTML = donationFormatter.format(donationInput.value * {@USER_DONATION_FACTOR});
-			{/if}
+			document.getElementById('donationSum').innerHTML = donationFormatter.format(donationInput.value * donationFactor);
+			
+			if(donationTransfer === true){
+				document.getElementById('donationSumTransfer').innerHTML = donationFormatter.format(donationInput.value * donationFactor);
+			}
 			// Paypal
-			var donationPaypalValue = document.getElementById("donationRange").value;
-			var donationPaypalLink = "{@USER_DONATION_PAYPAL_LINK}" + (donationPaypalValue * {@USER_DONATION_FACTOR}).toFixed(2);
-			document.getElementById('donationPaypayLink').setAttribute("href",donationPaypalLink);
+			if(donationPaypal === true){
+				var donationPaypalValue = document.getElementById("donationRange").value;
+				var donationPaypalLink = donationPaypalLinkBlank + (donationPaypalValue * donationFactor).toFixed(2);
+				document.getElementById('donationPaypayLink').setAttribute("href",donationPaypalLink);
+				document.querySelector('#donationPaypayLink').addEventListener('click', () => {
+					var element = document.getElementById("donationBoxThanks");
+					element.classList.toggle("donationBoxThanksVisible");
+				});
+				document.querySelector('#donationBoxCloseButton').addEventListener('click', () => {
+					var element = document.getElementById("donationBoxThanks");
+					element.classList.toggle("donationBoxThanksVisible");
+				});	
+			}
 		}
 		document.getElementById('donationRange').oninput = donation;
 		donation();
-		// Overlay
-		document.querySelector('#donationPaypayLink').addEventListener('click', () => {
-			var element = document.getElementById("donationBoxThanks");
-			element.classList.toggle("donationBoxThanksVisible");
-		});
-		document.querySelector('#donationBoxCloseButton').addEventListener('click', () => {
-			var element = document.getElementById("donationBoxThanks");
-			element.classList.toggle("donationBoxThanksVisible");
-		});
 	})();
 	</script>
 </div>
