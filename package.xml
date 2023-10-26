@@ -6,7 +6,7 @@
 		<packagedescription>Box for donations.</packagedescription>
 		<packagedescription languagecode="de">Box für Spenden.</packagedescription>
 		<version>1.0.14</version>
-		<date>2023-10-16</date>
+		<date>2023-10-26</date>
 	</packageinformation>
 	
 	<authorinformation>
@@ -36,27 +36,6 @@
 		<instruction type="template" />
 		<instruction type="language" />	
 		<instruction type="file" />
-	</instructions>
-	
-	<instructions type="update" fromversion="1.0.12">
-		<instruction type="template" />
-	</instructions>
-
-	<instructions type="update" fromversion="1.0.11">
-		<instruction type="file" />
-		<instruction type="option" />
-		<instruction type="template" />
-		<instruction type="language" />	
-	</instructions>
-
-	<instructions type="update" fromversion="1.0.10">
-		<instruction type="template" />
-	</instructions>
-
-	<instructions type="update" fromversion="1.0.9">
-		<instruction type="file" />
-		<instruction type="option" />
-		<instruction type="template" />
 	</instructions>
 
 </package>

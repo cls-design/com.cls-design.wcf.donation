@@ -3,7 +3,7 @@
 		<div>
 			<div>
 				<div>{lang}wcf.donation.thanks.message{/lang}</div>
-				<a id="donationBoxCloseButton" class="jsTooltip" title="{lang}wcf.donation.button.closePopup{/lang}"></a>
+				<a href="#" role="button" id="donationBoxCloseButton" class="jsTooltip" title="{lang}wcf.donation.button.closePopup{/lang}"></a>
 			</div>
 		</div>
 	</div>
@@ -58,7 +58,7 @@
 				<dt>{lang}wcf.donation.donation_transfer_amount{/lang}</dt>
 				<dd><div id="donationSumTransfer"></div></dd>
 			</dl>
-		 	<p style="margin-top: 20px;">{lang}wcf.donation.donation_transfer_note{/lang}</p>
+		 	<p style="margin-top: 20px;">{lang}wcf.donation.thanks.message{/lang}</p>
 		</div>
 	</div>
 	{/if}
@@ -109,6 +109,7 @@
 				document.querySelector('#donationBoxCloseButton').addEventListener('click', () => {
 					var element = document.getElementById("donationBoxThanks");
 					element.classList.toggle("donationBoxThanksVisible");
+					event.preventDefault();
 				});	
 			}
 		}

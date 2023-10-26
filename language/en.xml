@@ -1,62 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <language xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/language.xsd" languagecode="en">
+	<import>
+		<category name="wcf.acp.option">
+			<item name="wcf.acp.option.category.user.donation"><![CDATA[Donation]]></item>
+			<item name="wcf.acp.option.category.user.donation.banktransfer"><![CDATA[Bank Account]]></item>
+			<item name="wcf.acp.option.category.user.donation.goal"><![CDATA[Donationgoal]]></item>
+			<item name="wcf.acp.option.user_donation_paypal_link"><![CDATA[PayPal.Me-Link]]></item>
+			<item name="wcf.acp.option.user_donation_paypal_link.description"><![CDATA[Enter the PayPal. me link (with a final slash) where the donations should arrive. Leave the filed blank if you do not want to use Paypal.]]></item>
+			<item name="wcf.acp.option.user_donation_type"><![CDATA[Donationobjekt]]></item>
+			<item name="wcf.acp.option.user_donation_type.description"><![CDATA[Select the object that can be donated.]]></item>
+			<item name="wcf.acp.option.user_donation_type_beer"><![CDATA[Beer]]></item>
+			<item name="wcf.acp.option.user_donation_type_coffee"><![CDATA[Coffee]]></item>
+			<item name="wcf.acp.option.user_donation_type_whisky"><![CDATA[Whisky]]></item>
+			<item name="wcf.acp.option.user_donation_type_energy"><![CDATA[Energy]]></item>
+			<item name="wcf.acp.option.user_donation_type_cookie"><![CDATA[Cookie]]></item>
+			<item name="wcf.acp.option.user_donation_type_piggybank"><![CDATA[Coins]]></item>
+			<item name="wcf.acp.option.user_donation_factor"><![CDATA[Coefficient]]></item>
+			<item name="wcf.acp.option.user_donation_factor.description"><![CDATA[Enter the multiplier with a decimal point and two decimal places. The multiplier corresponds to the unit price in euros or the minimum donation.]]></item>
+			<item name="wcf.acp.option.user_donation_max_donation"><![CDATA[Maximum amount]]></item>
+			<item name="wcf.acp.option.user_donation_max_donation.description"><![CDATA[Enter the maximum number of objects that can be donated.]]></item>
+			<item name="wcf.acp.option.user_donation_text"><![CDATA[Optional note]]></item>
+			<item name="wcf.acp.option.user_donation_text_enable_html"><![CDATA[Use HTML in the note]]></item>
+			<item name="wcf.acp.option.user_donation_use_own_object"><![CDATA[Use your own donation object]]></item>
+			<item name="wcf.acp.option.user_donation_own_object"><![CDATA[Description Donation object]]></item>		
+			<item name="wcf.acp.option.user_donation_own_object.description"><![CDATA[Enter the name of the donation object here.]]></item>
+			<item name="wcf.acp.option.user_donation_own_icon"><![CDATA[Donation Object icon]]></item>		
+			<item name="wcf.acp.option.user_donation_own_icon.description"><![CDATA[Specify the icon of the donation object (name. png) here. The icon must be placed under this path: images/donation/ and is always scaled to a size of 64x64px.]]></item>
+			<item name="wcf.acp.option.user_donation_new_window"><![CDATA[Open forwarding in a new window]]></item>
+			<item name="wcf.acp.option.user_donation_use_decimal_point"><![CDATA[Use decimal point instead of comma for currency]]></item>
+			<item name="wcf.acp.option.user_donation_transfer_activate"><![CDATA[Specify bank details for donations]]></item>
+			<item name="wcf.acp.option.user_donation_transfer_name"><![CDATA[Name of account holder]]></item>
+			<item name="wcf.acp.option.user_donation_transfer_iban"><![CDATA[IBAN]]></item>
+			<item name="wcf.acp.option.user_donation_transfer_bic"><![CDATA[BIC]]></item>
+			<item name="wcf.acp.option.user_donation_goal"><![CDATA[Progress Donationgoal]]></item>
+			<item name="wcf.acp.option.user_donation_goal.description"><![CDATA[Enter a value between 1 and 100% to indicate the progress of the donation goal.]]></item>		
+		</category>
+	
+		<category name="wcf.donation">
+			<item name="wcf.donation.title"><![CDATA[Donate]]></item>
+			<item name="wcf.donation.link"><![CDATA[Donate now via Paypal*]]></item>
+			<item name="wcf.donation.link.description"><![CDATA[*Forwarding to PayPal.Me]]></item>
+			<item name="wcf.donation.donation"><![CDATA[Amount to be spent?]]></item>
+			<item name="wcf.donation.donation_currency_eur"><![CDATA[$]]></item>
+			<item name="wcf.donation.donation_transfer"><![CDATA[Donate now by bank transfer]]></item>
+			<item name="wcf.donation.donation_transfer_name"><![CDATA[Depositor]]></item>
+			<item name="wcf.donation.donation_transfer_iban"><![CDATA[IBAN]]></item>
+			<item name="wcf.donation.donation_transfer_bic"><![CDATA[BIC]]></item>
+			<item name="wcf.donation.donation_transfer_amount"><![CDATA[Amount]]></item>
+			<item name="wcf.donation.donation_paypal"><![CDATA[By Paypal*]]></item>
+			<item name="wcf.donation.donation_goal"><![CDATA[Donation Goal]]></item>
+			<item name="wcf.donation.donation_goal_progress"><![CDATA[{@USER_DONATION_GOAL}% of 100% reached]]></item>
+			<item name="wcf.donation.button.closePopup"><![CDATA[Close]]></item>
+			<item name="wcf.donation.thanks.message"><![CDATA[Thank you for the support!]]></item>
+		</category>
+		<category name="wcf.acp.box">
+			<item name="wcf.acp.box.boxController.com.cls-design.wcf.box.donation"><![CDATA[Donation]]></item>
+		</category>
+	</import>
 
-	<category name="wcf.acp.option">
-		<item name="wcf.acp.option.category.user.donation"><![CDATA[Donation]]></item>
-		<item name="wcf.acp.option.category.user.donation.banktransfer"><![CDATA[Bank Account]]></item>
-		<item name="wcf.acp.option.category.user.donation.goal"><![CDATA[Donationgoal]]></item>
-		<item name="wcf.acp.option.user_donation_paypal_link"><![CDATA[PayPal.Me-Link]]></item>
-		<item name="wcf.acp.option.user_donation_paypal_link.description"><![CDATA[Enter the PayPal. me link (with a final slash) where the donations should arrive. Leave the filed blank if you do not want to use Paypal.]]></item>
-		<item name="wcf.acp.option.user_donation_type"><![CDATA[Donationobjekt]]></item>
-		<item name="wcf.acp.option.user_donation_type.description"><![CDATA[Select the object that can be donated.]]></item>
-		<item name="wcf.acp.option.user_donation_type_beer"><![CDATA[Beer]]></item>
-		<item name="wcf.acp.option.user_donation_type_coffee"><![CDATA[Coffee]]></item>
-		<item name="wcf.acp.option.user_donation_type_whisky"><![CDATA[Whisky]]></item>
-		<item name="wcf.acp.option.user_donation_type_energy"><![CDATA[Energy]]></item>
-		<item name="wcf.acp.option.user_donation_type_cookie"><![CDATA[Cookie]]></item>
-		<item name="wcf.acp.option.user_donation_type_piggybank"><![CDATA[Coins]]></item>
-		<item name="wcf.acp.option.user_donation_factor"><![CDATA[Coefficient]]></item>
-		<item name="wcf.acp.option.user_donation_factor.description"><![CDATA[Enter the multiplier with a decimal point and two decimal places. The multiplier corresponds to the unit price in euros or the minimum donation.]]></item>
-		<item name="wcf.acp.option.user_donation_max_donation"><![CDATA[Maximum amount]]></item>
-		<item name="wcf.acp.option.user_donation_max_donation.description"><![CDATA[Enter the maximum number of objects that can be donated.]]></item>
-		<item name="wcf.acp.option.user_donation_text"><![CDATA[Optional note]]></item>
-		<item name="wcf.acp.option.user_donation_text_enable_html"><![CDATA[Use HTML in the note]]></item>
-		<item name="wcf.acp.option.user_donation_use_own_object"><![CDATA[Use your own donation object]]></item>
-		<item name="wcf.acp.option.user_donation_own_object"><![CDATA[Description Donation object]]></item>		
-		<item name="wcf.acp.option.user_donation_own_object.description"><![CDATA[Enter the name of the donation object here.]]></item>
-		<item name="wcf.acp.option.user_donation_own_icon"><![CDATA[Donation Object icon]]></item>		
-		<item name="wcf.acp.option.user_donation_own_icon.description"><![CDATA[Specify the icon of the donation object (name. png) here. The icon must be placed under this path: images/donation/ and is always scaled to a size of 64x64px.]]></item>
-		<item name="wcf.acp.option.user_donation_new_window"><![CDATA[Open forwarding in a new window]]></item>
-		<item name="wcf.acp.option.user_donation_use_decimal_point"><![CDATA[Use decimal point instead of comma for currency]]></item>
-		<item name="wcf.acp.option.user_donation_transfer_activate"><![CDATA[Specify bank details for donations]]></item>
-		<item name="wcf.acp.option.user_donation_transfer_name"><![CDATA[Name of account holder]]></item>
-		<item name="wcf.acp.option.user_donation_transfer_iban"><![CDATA[IBAN]]></item>
-		<item name="wcf.acp.option.user_donation_transfer_bic"><![CDATA[BIC]]></item>
-		<item name="wcf.acp.option.user_donation_goal"><![CDATA[Progress Donationgoal]]></item>
-		<item name="wcf.acp.option.user_donation_goal.description"><![CDATA[Enter a value between 1 and 100% to indicate the progress of the donation goal.]]></item>		
-	</category>
-
-	<category name="wcf.donation">
-		<item name="wcf.donation.title"><![CDATA[Donate]]></item>
-		<item name="wcf.donation.link"><![CDATA[Donate now via Paypal*]]></item>
-		<item name="wcf.donation.link.description"><![CDATA[*Forwarding to PayPal.Me]]></item>
-		<item name="wcf.donation.donation"><![CDATA[Amount to be spent?]]></item>
-		<item name="wcf.donation.donation_currency_eur"><![CDATA[$]]></item>
-		<item name="wcf.donation.donation_transfer"><![CDATA[Donate now by bank transfer]]></item>
-		<item name="wcf.donation.donation_transfer_note"><![CDATA[Thank you very much!]]></item>
-		<item name="wcf.donation.donation_transfer_name"><![CDATA[Depositor]]></item>
-		<item name="wcf.donation.donation_transfer_iban"><![CDATA[IBAN]]></item>
-		<item name="wcf.donation.donation_transfer_bic"><![CDATA[BIC]]></item>
-		<item name="wcf.donation.donation_transfer_amount"><![CDATA[Amount]]></item>
-		<item name="wcf.donation.donation_paypal"><![CDATA[By Paypal*]]></item>
-		<item name="wcf.donation.donation_goal"><![CDATA[Donation Goal]]></item>
-		<item name="wcf.donation.donation_goal_progress"><![CDATA[{@USER_DONATION_GOAL}% of 100% reached]]></item>
-		<item name="wcf.donation.button.closePopup"><![CDATA[Close]]></item>
-		<item name="wcf.donation.thanks.message"><![CDATA[Thank you for the support!]]></item>
-	</category>
-
-	<category name="wcf.acp.box">
-		<item name="wcf.acp.box.boxController.com.cls-design.wcf.box.donation"><![CDATA[Donation]]></item>
-	</category>
-
+	<delete>
+		<item name="wcf.donation.donation_transfer_note"/>
+	</delete>
 </language>
