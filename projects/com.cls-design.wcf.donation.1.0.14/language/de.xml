@@ -48,7 +48,7 @@
 			<item name="wcf.donation.donation_transfer_bic"><![CDATA[BIC]]></item>
 			<item name="wcf.donation.donation_transfer_amount"><![CDATA[Betrag]]></item>
 			<item name="wcf.donation.donation_paypal"><![CDATA[Per Paypal*]]></item>
-			<item name="wcf.donation.donation_goal"><![CDATA[Kostendeckung]]></item>
+			<item name="wcf.donation.donation_goal"><![CDATA[Spendenziel]]></item>
 			<item name="wcf.donation.donation_goal_progress"><![CDATA[{@USER_DONATION_GOAL}% von 100% erreicht]]></item>
 			<item name="wcf.donation.button.closePopup"><![CDATA[Schließen]]></item>
 			<item name="wcf.donation.thanks.message"><![CDATA[Vielen Dank für die Unterstützung!]]></item>

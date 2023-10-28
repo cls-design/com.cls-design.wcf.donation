@@ -106,7 +106,7 @@
 					var element = document.getElementById("donationBoxThanks");
 					element.classList.toggle("donationBoxThanksVisible");
 				});
-				document.querySelector('#donationBoxCloseButton').addEventListener('click', () => {
+				document.querySelector('#donationBoxCloseButton').addEventListener('click', (event) => {
 					var element = document.getElementById("donationBoxThanks");
 					element.classList.toggle("donationBoxThanksVisible");
 					event.preventDefault();
