@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/vortex/option.xsd">
+	<import>
+		<categories>
+			<category name="user.donation">
+				<parent>user</parent>
+			</category>
+			<category name="user.donation.banktransfer">
+				<parent>user.donation</parent>
+			</category>
+			<category name="user.donation.goal">
+				<parent>user.donation</parent>
+			</category>			
+		</categories>
+		<options>
+			<option name="user_donation_paypal_link">
+				<categoryname>user.donation</categoryname>
+				<optiontype>text</optiontype>
+				<defaultvalue>https://paypal.me/cls/</defaultvalue>
+			</option>						
+			<option name="user_donation_type">
+				<categoryname>user.donation</categoryname>
+				<optiontype>select</optiontype>
+				<defaultvalue>coffee</defaultvalue>
+				<selectoptions>beer:wcf.acp.option.user_donation_type_beer
+coffee:wcf.acp.option.user_donation_type_coffee
+whisky:wcf.acp.option.user_donation_type_whisky
+energy:wcf.acp.option.user_donation_type_energy
+cookie:wcf.acp.option.user_donation_type_cookie
+piggybank:wcf.acp.option.user_donation_type_piggybank</selectoptions>
+			</option>
+			<option name="user_donation_factor">
+				<categoryname>user.donation</categoryname>
+				<optiontype>text</optiontype>
+				<defaultvalue>2.50</defaultvalue>
+			</option>
+			<option name="user_donation_max_donation">
+				<categoryname>user.donation</categoryname>
+				<optiontype>integer</optiontype>
+				<defaultvalue>24</defaultvalue>
+			</option>
+			<option name="user_donation_text">
+				<categoryname>user.donation</categoryname>
+				<defaultvalue></defaultvalue>
+				<optiontype>textareaI18n</optiontype>
+				<supporti18n>1</supporti18n>
+			</option>
+			<option name="user_donation_text_enable_html">
+				<categoryname>user.donation</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+			<option name="user_donation_use_own_object">
+				<categoryname>user.donation</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+				<enableoptions>user_donation_own_object,user_donation_own_icon</enableoptions>				
+			</option>
+			<option name="user_donation_own_object">
+				<categoryname>user.donation</categoryname>
+				<optiontype>textI18n</optiontype>
+				<supporti18n>1</supporti18n>
+			</option>
+			<option name="user_donation_own_icon">
+				<categoryname>user.donation</categoryname>
+				<optiontype>text</optiontype>
+			</option>
+			<option name="user_donation_new_window">
+				<categoryname>user.donation</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+			<option name="user_donation_transfer_activate">
+				<categoryname>user.donation.banktransfer</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+			<option name="user_donation_transfer_name">
+				<categoryname>user.donation.banktransfer</categoryname>
+				<optiontype>text</optiontype>
+			</option>
+			<option name="user_donation_transfer_iban">
+				<categoryname>user.donation.banktransfer</categoryname>
+				<optiontype>text</optiontype>
+			</option>
+			<option name="user_donation_transfer_bic">
+				<categoryname>user.donation.banktransfer</categoryname>
+				<optiontype>text</optiontype>
+			</option>
+			<option name="user_donation_goal">
+				<categoryname>user.donation.goal</categoryname>
+				<optiontype>integer</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+		</options>
+	</import>
+	<delete>
+		<option name="user_donation_use_decimal_point" />
+	</delete>	
+</data>

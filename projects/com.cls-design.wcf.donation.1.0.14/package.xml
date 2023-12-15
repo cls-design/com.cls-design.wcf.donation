@@ -5,8 +5,8 @@
 		<packagename language="de">WoltLab Suite Core: Box für Spenden</packagename>
 		<packagedescription>Box for donations.</packagedescription>
 		<packagedescription languagecode="de">Box für Spenden.</packagedescription>
-		<version>1.0.15</version>
-		<date>2023-11-02</date>
+		<version>1.0.14</version>
+		<date>2023-10-26</date>
 	</packageinformation>
 	
 	<authorinformation>
@@ -32,7 +32,7 @@
 		<instruction type="box" />
 	</instructions>
 
-	<instructions type="update" fromversion="1.0.14">
+	<instructions type="update" fromversion="1.0.13">
 		<instruction type="template" />
 		<instruction type="language" />	
 		<instruction type="file" />
